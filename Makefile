@@ -1392,6 +1392,10 @@ kselftest-merge:
 		$(srctree)/tools/testing/selftests/*/config
 	+$(Q)$(MAKE) -f $(srctree)/Makefile olddefconfig
 
+PHONY += dt_compatible_check
+dt_compatible_check: dt_binding_check
+	$(Q)$(MAKE) $(build)=Documentation/devicetree/bindings $@
+
 # ---------------------------------------------------------------------------
 # Modules
 
